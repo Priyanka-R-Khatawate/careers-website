@@ -1,8 +1,9 @@
 from sqlalchemy import create_engine,text
 from decouple import config
-
+import os
 # Create a database connection
-engine = create_engine(config('db_url'))
+db_url = os.environ.get('db_url')
+engine = create_engine(db_url)
 
 
 def load_jobs_from_db():
